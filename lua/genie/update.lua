@@ -1,11 +1,11 @@
 ------------
+--- Updates all genie managed genes.
 -- @module genie/update
 -- @author samantha-uk
 -- @license MIT
 
-local M = {}
-function M.update()
-  print('genie.update')
+local update = function()
+  print('Running: genie.update()')
 end
 
-return M
+return update

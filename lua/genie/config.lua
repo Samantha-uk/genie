@@ -4,9 +4,8 @@
 -- @author samantha-uk
 -- @license MIT
 
-local M = {}
-function M.config()
+local config = function()
   print('genie.config')
 end
 
-return M
+return config

@@ -3,9 +3,8 @@
 -- @author samantha-uk
 -- @license MIT
 
-local M = {}
-function M.status()
+local status = function()
   print('genie.status')
 end
 
-return M
+return status

@@ -3,9 +3,8 @@
 -- @author samantha-uk
 -- @license MIT
 
-local M = {}
-function M.remove()
+local remove = function()
   print('genie.remove')
 end
 
-return M
+return remove

@@ -3,9 +3,8 @@
 -- @author samantha-uk
 -- @license MIT
 
-local M = {}
-function M.clean()
+local clean = function()
   print('genie.clean')
 end
 
-return M
+return clean
