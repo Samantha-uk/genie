@@ -27,7 +27,8 @@ end
 
 -- Create a format string (using OS specific seperators) to be used when accessing local paths
 _genie.packagePathFormat = table.concat({vim.fn.stdpath('data'), 'site', 'pack','genie','%s','%s'}, _genie.pathSeparator)
--- Build the filename for the genie config
+
+-- Build the filename for the genie state file
 _genie.genieStateFile = table.concat({vim.fn.stdpath('config'), 'genie','state.lua'}, _genie.pathSeparator)
 
 -- Read the gene state from disk
