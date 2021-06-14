@@ -25,7 +25,7 @@ local splice = function(gene)
     _genie.genes[geneName].spliced = true
 
     -- Save the gene state to disk
-    _genie.state.store(_genie.genieConfigFile,_genie.genes)
+    _genie.state.store(_genie.genieStateFile,_genie.genes)
   end
 
   if (gene.packadd) then
