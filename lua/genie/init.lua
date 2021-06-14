@@ -5,7 +5,9 @@
 -- @license MIT
 -- Create genie global variable
 _genie = _genie or {}
-_genie.debug = true;
+
+_genie.debug = false;
+
 if (_genie.debug) then
   print('Loaded: genie/init.lua')
 end

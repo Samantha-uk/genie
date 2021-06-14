@@ -10,19 +10,19 @@ function M.install(package)
     print(string.format('Called: genie/util/git.install(%s)',vim.inspect(package)))
   end
   -- Is it a start or opt package
-  local startOrOpt = 'start' -- the default
-  if (package.opt) then
-    startOrOpt = 'opt'
-  end
+  local startOrOpt = 'opt' -- the default
+  -- if (package.opt) then
+  --   startOrOpt = 'opt'
+  -- end
 
   -- Split the package name
-  local packageName = vim.split(package[1],'/',true)
+  local packageNameParts = vim.split(package[1],'/',true)
 
   -- The package must consist of at least two parts
-  assert(#packageName > 1, 'genie.git.install: Unrecognised package name')
+  assert(#packageNameParts > 1, 'genie.git.install: Unrecognised package name')
 
   -- Construct the local package installation path
-  local packagePath = string.format(_genie.packagePathFormat, startOrOpt, packageName[#packageName])
+  local packagePath = string.format(_genie.packagePathFormat, startOrOpt, packageNameParts[#packageNameParts])
 
   -- Remove the packagePath, do not complain if it does not exist.
   _genie.os.rmdir(packagePath)
@@ -38,6 +38,7 @@ function M.install(package)
   local status = {}
   status.repoURL = repoURL
   status.packagePath = packagePath
+  status.packageName = packageNameParts[#packageNameParts]
 
   if (result == 0) then
     status.installed = true
