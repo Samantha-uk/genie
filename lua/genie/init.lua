@@ -28,10 +28,10 @@ end
 -- Create a format string (using OS specific seperators) to be used when accessing local paths
 _genie.packagePathFormat = table.concat({vim.fn.stdpath('data'), 'site', 'pack','genie','%s','%s'}, _genie.pathSeparator)
 -- Build the filename for the genie config
-_genie.genieConfigFile = table.concat({vim.fn.stdpath('config'), 'genie','state.lua'}, _genie.pathSeparator)
+_genie.genieStateFile = table.concat({vim.fn.stdpath('config'), 'genie','state.lua'}, _genie.pathSeparator)
 
--- Read the genie config
-local genes  = loadfile(_genie.genieConfigFile)
+-- Read the gene state from disk
+local genes  = loadfile(_genie.genieStateFile)
 if (genes) then
   _genie.genes = genes()
 else
@@ -44,7 +44,7 @@ vim.cmd [[command! GenieRemove lua require('genie.remove')()]]
 vim.cmd [[command! GenieStatus lua require('genie.status')()]]
 vim.cmd [[command! GenieUpdate lua require('genie.update')()]]
 
--- Protect against typos when using genie
+-- Protect against typos when using _genie
 setmetatable(_genie, {
   __newindex = function (_, n)
     error('Adding a new genie item is not allowed '..n, 2)
