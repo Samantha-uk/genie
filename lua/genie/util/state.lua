@@ -22,6 +22,18 @@ function M.store(filename, state)
   file:close()
 end
 
+function M.load(filename)
+  local genes = nil
+
+  local geneState = loadfile(filename)
+
+  if (geneState) then
+    genes = geneState()
+  end
+
+  return genes or {}
+end
+
 function M.write(file, item, level)
 	M.writers[type(item)](file, item, level)
 end

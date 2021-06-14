@@ -25,19 +25,14 @@ else
   _genie.os = require('genie.util.osnix')
 end
 
--- Create a format string (using OS specific seperators) to be used when accessing local paths
+-- Build format string (using OS specific seperators) to be used when building local package paths
 _genie.packagePathFormat = table.concat({vim.fn.stdpath('data'), 'site', 'pack','genie','%s','%s'}, _genie.pathSeparator)
 
--- Build the filename for the genie state file
-_genie.genieStateFile = table.concat({vim.fn.stdpath('config'), 'genie','state.lua'}, _genie.pathSeparator)
+-- Build the filename of the genie state file
+_genie.genieStateFile = table.concat({vim.fn.stdpath('config'), 'genie_state.lua'}, _genie.pathSeparator)
 
--- Read the gene state from disk
-local genes  = loadfile(_genie.genieStateFile)
-if (genes) then
-  _genie.genes = genes()
-else
-  _genie.genes = {}
-end
+-- Load the gene state from disk
+_genie.genes = _genie.state.load(_genie.genieStateFile)
 
 -- Setup commands
 vim.cmd [[command! GenieClean lua require('genie.clean')()]]
