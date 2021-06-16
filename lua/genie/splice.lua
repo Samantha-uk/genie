@@ -29,7 +29,9 @@ local splice = function(gene)
   end
 
   if (gene.packadd) then
-    print('Calling packadd [' .. _genie.genes[geneName].packageName .. ']')
+    if (_genie.debug) then
+      print('Calling packadd [' .. _genie.genes[geneName].packageName .. ']')
+    end
     vim.cmd ('packadd ' .. _genie.genes[geneName].packageName)
   end
 end
