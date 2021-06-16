@@ -10,8 +10,8 @@ local splice = function(gene)
     print(string.format('Called: genie.splice(%s)',vim.inspect(gene[1])))
   end
 
-  assert(type(gene) == 'table', 'genie.splice: requires a table as an argument')
-  assert(type(gene[1]) == 'string', 'genie.splice: First element of argument must be a string')
+  assert(type(gene) == 'table', 'genie.splice(): requires a table as an argument')
+  assert(type(gene[1]) == 'string', 'genie.splice(): First element of argument must be a string')
   local geneName = gene[1]
 
   gene.packadd = gene.packadd or false
