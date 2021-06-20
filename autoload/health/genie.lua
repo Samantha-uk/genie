@@ -2,4 +2,12 @@
 -- @module autoload/health/genie.lua
 -- @author samantha-uk
 -- @license MIT
-print('Genie Checkhealth')
+print('Loaded: autoload/health/genie.lua')
+vim.api.nvim_exec(
+[[
+function! health#genie#check()
+  echom 'genie vim healthcheck'
+endfunction
+]],
+false)
+

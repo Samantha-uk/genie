@@ -14,7 +14,7 @@ local splice = function(gene)
   assert(type(gene[1]) == 'string', 'genie.splice(): First element of argument must be a string')
   local geneName = gene[1]
 
-  gene.packadd = gene.packadd or false
+  gene.load = gene.load or false
 
   -- Check to see if gene has previously been spliced and thus in our 'managed' set of genes
   if (_genie.genes[geneName]) then
@@ -28,7 +28,7 @@ local splice = function(gene)
     _genie.state.store(_genie.genieStateFile, _genie.genes)
   end
 
-  if (gene.packadd) then
+  if (gene.load) then
     if (_genie.debug) then
       print('Calling packadd [' .. _genie.genes[geneName].packageName .. ']')
     end
