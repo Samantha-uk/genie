@@ -7,7 +7,7 @@
 
 local M = {}
 
-
+-- Store state in filename as a lua table.
 function M.store(filename, state)
   assert(type(filename) == 'string', 'genie.util.state.store: Filename must be a string')
   local file, err = io.open(filename, 'w+')
@@ -22,6 +22,7 @@ function M.store(filename, state)
   file:close()
 end
 
+-- Load state from filename as a lua table and execute it.
 function M.load(filename)
   local genes = nil
 

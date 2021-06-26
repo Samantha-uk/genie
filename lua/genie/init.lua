@@ -34,6 +34,9 @@ _genie.genieStateFile = table.concat({vim.fn.stdpath('config'), 'genie_state.lua
 -- Load the gene state from disk
 _genie.genes = _genie.state.load(_genie.genieStateFile)
 
+-- Initalise other global values
+_genie.ui_win = nil
+
 -- Setup commands
 vim.cmd [[command! GenieClean lua require('genie.clean')()]]
 vim.cmd [[command! GenieRemove lua require('genie.remove')()]]

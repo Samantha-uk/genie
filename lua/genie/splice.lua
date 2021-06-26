@@ -22,6 +22,7 @@ local splice = function(gene)
     _genie.genes[geneName].spliced = true
   else
     _genie.genes[gene[1]] = _genie.git.install(gene)
+    -- TODO: Add error handling
     _genie.genes[geneName].spliced = true
 
     -- Save the gene state to disk
